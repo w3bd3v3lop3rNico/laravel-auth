@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
-    Route::resource('posts', PostController::class);
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('posts', ProjectController::class);
 });
 
 Route::middleware('auth')->name('profile.')->group(function () {
